@@ -1,74 +1,117 @@
 
-int diceNum = (int)(Math.random()*6)+1;
-int sum = 0;  
-
+ int diceNum = (int)(Math.random()*6)+1;
+// int sum = 0;  
+Die dieOne;
 
 void setup()
-{
-	noLoop();
+{	
 	size(300,300);
+	noLoop();
+	dieOne = new Die(150, 150);
 }
+
 void draw()
 {
-	//your code here
+	
+	//for (int x = 50; x < 250; x = x + 60)
+	//{
+		
+		dieOne.roll();
+		dieOne.show();
+
+//	}
+
 }
+
 void mousePressed()
 {
 	redraw();
 }
+
 class Die //models one single dice cube
 {
 
 
 	//variable declarations here
+	boolean one;
+	int myX, myY;
+
 	Die(int x, int y) //constructor
+
 	{
 		//variable initializations here
-		myX=x;
-		mY=y;
+		roll();
+		myX = x;
+		myY = y;
 	}
 
 	void roll()
 	{
 
-	if(diceNum == 6)
+		if (diceNum < .5)
+
 		{
-			sum = sum +6;
+			one = true;
+		}
+		else 
+		{
+			one = false;
 		}
 
-	if(diceNum == 5)
-		{
-			sum = sum +5;
-		}
+}
 
-	if(diceNum == 4)
-		{
-			sum = sum +4;
-		}
 
-	if(diceNum == 3)
-		{
-			sum = sum +3;
-		}
-	if(diceNum == 2)
-		{
-			sum = sum +2;
-		}
+
+	// if(diceNum == 6)
+	// 	{
+	// 		sum = sum +6;
+	// 	}
+
+	// if(diceNum == 5)
+	// 	{
+	// 		sum = sum +5;
+	// 	}
+
+	// if(diceNum == 4)
+	// 	{
+	// 		sum = sum +4;
+	// 	}
+
+	// if(diceNum == 3)
+	// 	{
+	// 		sum = sum +3;
+	// 	}
+	// if(diceNum == 2)
+	// 	{
+	// 		sum = sum +2;
+	// 	}
 		
-	else (diceNum == 1)
-		{
-			sum = sum +1;
-		}
+	// else (diceNum == 1)
+	// 	{
+	// 		sum = sum +1;
+	// 	}
 
 
-	}
+	
 
 
 	void show()
 	{
 		fill(255);
 		rect(myX, myY, 50,50);
-		text()
+
+		if (one == true)
+		{
+			fill(0);
+			ellipse(myX, myY, 10,10);
+		}
+		else 
+		{
+			fill(0);
+			ellipse(myX, myY, 10,10);
+			ellipse(myX +10, myY, 10,10);
+			
+		}
 
 
 	}
