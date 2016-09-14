@@ -1,119 +1,127 @@
 
- int diceNum = (int)(Math.random()*6)+1;
-// int sum = 0;  
-Die dieOne;
+// int diceNum = (int)(Math.random()*6)+1;
+// // int sum = 0;  
+// Die dieOne;
+
+//int m =25;
 
 void setup()
 {	
-	size(300,300);
+	size(700,700);
 	noLoop();
-	dieOne = new Die(150, 150);
+	background(0);
+	totalSum();
 }
 
 void draw()
 {
 	
-	//for (int x = 50; x < 250; x = x + 60)
-	//{
-		
-		dieOne.roll();
-		dieOne.show();
+	for (int b =50; b<= 550; b+= 150){
+		for(int a = 50; a< 550; a+=150){
 
-//	}
+			Die all = new Die(a,b);
+					all.show();
+
+		}
+
+	}
 
 }
+
 
 void mousePressed()
 {
 	redraw();
 }
 
+
+
 class Die //models one single dice cube
 {
-
-
-	//variable declarations here
-	boolean one;
-	int myX, myY;
+	int myX, myY,numRoll;
 
 	Die(int x, int y) //constructor
 
 	{
 		//variable initializations here
-		roll();
+		
 		myX = x;
 		myY = y;
+		numRoll = (int)(Math.random()*6)+1;
 	}
 
-	void roll()
-	{
 
-		if (diceNum < .5)
+	 void totalSum()
+	 {
 
-		{
-			one = true;
-		}
-		else 
-		{
-			one = false;
-		}
-
-}
+	 	sum = ("Dice Sum = " + diceRoll);
 
 
+	 }
 
-	// if(diceNum == 6)
-	// 	{
-	// 		sum = sum +6;
-	// 	}
-
-	// if(diceNum == 5)
-	// 	{
-	// 		sum = sum +5;
-	// 	}
-
-	// if(diceNum == 4)
-	// 	{
-	// 		sum = sum +4;
-	// 	}
-
-	// if(diceNum == 3)
-	// 	{
-	// 		sum = sum +3;
-	// 	}
-	// if(diceNum == 2)
-	// 	{
-	// 		sum = sum +2;
-	// 	}
-		
-	// else (diceNum == 1)
-	// 	{
-	// 		sum = sum +1;
-	// 	}
-
-
-	
 
 
 	void show()
 	{
 		fill(255);
-		rect(myX, myY, 50,50);
+		rect(myX, myY, 100,100);
 
-		if (one == true)
+		if (numRoll == 1)
 		{
 			fill(0);
-			ellipse(myX, myY, 10,10);
+			ellipse(myX+50, myY+50, 20,20);
+			diceRoll = diceRoll +1;
+
 		}
-		else 
+
+		if (numRoll == 2)
 		{
 			fill(0);
-			ellipse(myX, myY, 10,10);
-			ellipse(myX +10, myY, 10,10);
-			
+			ellipse(myX+25,myY +25,20,20);
+			ellipse(myX+75,myY+75,20,20);
+			diceRoll = diceRoll + 2;
 		}
 
+		if (numRoll== 3)
+		{
+			fill(0);
+			ellipse(myX+25,myY+25,20,20);
+			ellipse(myX+75,myY+75,20,20);
+			diceRoll = diceRoll +3;
+		}
 
+		if (numRoll== 4)
+		{
+			fill(0);
+			ellipse(myX+25,myY+25,20,20);
+			ellipse(myX+75,myY+75,20,20);
+			ellipse(myX+25,myY+75,20,20);
+			ellipse(myX+75,myY+25,20,20);
+			diceRoll = diceRoll +4;
+		}
+
+		if (numRoll== 5)
+		{
+			fill(0);
+			ellipse(myX+25,myY+25,20,20);
+			ellipse(myX+75,myY+75,20,20);
+			ellipse(myX+25,myY+75,20,20);
+			ellipse(myX+75,myY+25,20,20);
+			ellipse(myX+50,myY+50,20,20);
+			diceRoll = diceRoll +5;
+		}
+
+		if (numRoll== 6){
+			fill(0);
+			ellipse(myX+25,myY+25,20,20);
+			ellipse(myX+75,myY+75,20,20);
+			ellipse(myX+25,myY+75,20,20);
+			ellipse(myX+75,myY+25,20,20);
+			ellipse(myX+25,myY+50,20,20);
+			ellipse(myX+75,myY+50,20,20);
+			diceRoll = diceRoll +6;		
+
+		}
 	}
 }
 
