@@ -1,20 +1,22 @@
 
-// int diceNum = (int)(Math.random()*6)+1;
-// // int sum = 0;  
-// Die dieOne;
 
-//int m =25;
+
+int diceRoll = 0; 
 
 void setup()
 {	
 	size(700,700);
 	noLoop();
-	background(0);
-	totalSum();
+	
+//	totalSum();
 }
 
 void draw()
 {
+	background(0);
+	textSize(24);
+	fill(255);
+	text("Dice Sum: " + diceRoll , 50,40);
 	
 	for (int b =50; b<= 550; b+= 150){
 		for(int a = 50; a< 550; a+=150){
@@ -32,6 +34,7 @@ void draw()
 void mousePressed()
 {
 	redraw();
+
 }
 
 
@@ -51,13 +54,7 @@ class Die //models one single dice cube
 	}
 
 
-	 void totalSum()
-	 {
 
-	 	sum = ("Dice Sum = " + diceRoll);
-
-
-	 }
 
 
 
@@ -70,7 +67,7 @@ class Die //models one single dice cube
 		{
 			fill(0);
 			ellipse(myX+50, myY+50, 20,20);
-			diceRoll = diceRoll +1;
+		diceRoll = diceRoll +1;
 
 		}
 
@@ -134,3 +131,12 @@ class Die //models one single dice cube
 // Now, use nested loops to display at least nine instances of the Die class. This is the power of OOP. It's not that much more work to make 1000 dice as it is to make one. Make sure the dots are on the dice. Your show() function will need to position the dots by adding some small amount to the x and y coordinates of the rect() of the Die
 // Finally, add code to the draw() function so that your program displays the total for the roll to the screen.
 // Have fun and be creative. Your dice program doesn't have to look or work like any other.
+
+
+
+
+
+
+// Anarchists, wealth class
+// poor, fight against gov 
+// threaten wealthy ppl 
